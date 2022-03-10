@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("theme") var currentThemeRawValue: String = "dark"
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        HomeView()
+            .environment(\.colorScheme, HelperClass.getTheme(themeStr: currentThemeRawValue))
+
     }
 }
 
